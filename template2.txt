@@ -1,0 +1,10 @@
+brick = https://brickschema.org/schema/1.1/Brick#
+rdf = http://www.w3.org/1999/02/22-rdf-syntax-ns#
+bldg = http://example.org/building#
+
+bldg:$1 rdf:type brick:VAV
+bldg:$1 brick:hasPoint bldg:$2
+bldg:$2 rdf:type brick:Temperature_Sensor
+bldg:$1 brick:hasPoint bldg:$3
+bldg:$3 rdf:type brick:Temperature_Setpoint
+$4? bldg:$1 rdf:type brick:RVAV

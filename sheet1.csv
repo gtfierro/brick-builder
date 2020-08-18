@@ -1,0 +1,3 @@
+AHU,Point class,point name
+bldg:ahu1a,brick:Outside_Air_Temperature_Sensor,bldg:oat_1
+bldg:ahu1a,brick:Return_Air_Temperature_Sensor,bldg:rat_1

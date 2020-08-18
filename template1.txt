@@ -1,0 +1,7 @@
+brick = https://brickschema.org/schema/1.1/Brick#
+rdf = http://www.w3.org/1999/02/22-rdf-syntax-ns#
+bldg = http://example.org/building#
+
+$1 rdf:type brick:AHU
+$1 brick:hasPoint $3
+$3 rdf:type $2

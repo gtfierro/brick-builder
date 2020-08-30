@@ -75,6 +75,11 @@ class Builder:
             t = rule.evaluate(row)
             if t is None:
                 continue
+            t = (
+                t[0].replace(' ', '_'),
+                t[1].replace(' ', '_'),
+                t[2].replace(' ', '_')
+            )
             triple = (
                 self.apply_prefix(t[0]),
                 self.apply_prefix(t[1]),

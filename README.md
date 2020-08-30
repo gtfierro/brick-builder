@@ -1,4 +1,4 @@
-# Brick CSV Importer
+# CSV-to-Brick
 
 This is a small script to define Brick models from CSV files through the use of simple templates. At a high level, a CSV file contains entity names (the equipment, points and locations in a building), and a template encodes the Brick types of those entities and the relationships between them.
 

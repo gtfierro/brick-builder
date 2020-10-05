@@ -28,7 +28,7 @@ def resolve(q):
     q has fields:
     - query: string of the label that needs to be converted to a Brick type
     - type: optional list of 'types' (e.g. "PointClass" above)
-    - limit: optional limit on # of returned candidates
+    - limit: optional limit on # of returned candidates (default to 10)
     - properties: optional map of property idents to values
     - type_strict: [any, all, should] for strictness on the types returned
     """

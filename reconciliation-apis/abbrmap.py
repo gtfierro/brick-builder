@@ -1,5 +1,7 @@
 abbrmap = {
     "ahu": ["ahu"],
+    "vav": ["vav"],
+    "fcu": ["fcu"],
     "avg": ["average"],
     "cmd": ["command"],
     "elec": ["electrical"],
@@ -14,6 +16,7 @@ abbrmap = {
     "stpt": ["setpoint"],
 
     "temp": ["temperature"],
+    "t": ["temperature"],
     "unocc": ["unoccupied"],
     "volt": ["voltage"],
     "ctl": ["control"],
@@ -44,7 +47,6 @@ abbrmap = {
     "of": ["outside", "fan"],
     "rf": ["return", "fan"],
 
-    "t": ["temperature"],
     "sup": ["supply"],
     "dis": ["discharge"],
     "ex": ["exhaust"],

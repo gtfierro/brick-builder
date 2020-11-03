@@ -8,7 +8,7 @@ import re
 app = Flask(__name__)
 
 metadata = {
-    "name": "Simple Reconciliation Service",
+    "name": "Brick Reconciliation Service",
     "defaultTypes": [
         {"id": "EquipmentClass", "name": "EquipmentClass"},
         {"id": "PointClass", "name": "PointClass"}

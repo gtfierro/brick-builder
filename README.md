@@ -1,5 +1,7 @@
 # CSV-to-Brick
 
+**Note: the Reconciliation API server implementation has moved to a [dedicated repo](https://github.com/BrickSchema/reconciliation-api), and a publicly available server is online at http://reconciliation.brickschema.org/reconcile .
+
 This is a small script to define Brick models from CSV files through the use of simple templates. At a high level, a CSV file contains entity names (the equipment, points and locations in a building), and a template encodes the Brick types of those entities and the relationships between them.
 
 ### Simple Example (1)

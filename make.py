@@ -105,7 +105,7 @@ class Builder:
                 row = [x.strip() for x in row]
                 for triple in self.get_triples(row):
                     g.add(triple)
-        return g.g
+        return g
 
 
 def parse_prefix(line):

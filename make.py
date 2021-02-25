@@ -96,7 +96,7 @@ class Builder:
     def build(self, filename, delimiter=',', has_header=False):
         g = brickschema.graph.Graph(load_brick=False)
         for pfx, ns in self.prefixes.items():
-            g.g.bind(pfx, ns)
+            g.bind(pfx, ns)
         with open(filename) as f:
             csvf = csv.reader(f, delimiter=delimiter)
             if has_header:
@@ -105,7 +105,7 @@ class Builder:
                 row = [x.strip() for x in row]
                 for triple in self.get_triples(row):
                     g.add(triple)
-        return g.g
+        return g
 
 
 def parse_prefix(line):

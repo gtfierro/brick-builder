@@ -88,13 +88,16 @@ class Builder:
             yield triple
 
     def apply_prefix(self, uri):
+        literal = re.search(r'^"(.*)"$', uri)
+        if literal is not None:
+            return rdflib.Literal(literal.groups()[0])
         for pfx, ns in self.prefixes.items():
             if uri.startswith(f'{pfx}:'):
                 return rdflib.URIRef(uri.replace(f'{pfx}:', ns))
         return rdflib.URIRef(uri)
 
     def build(self, filename, delimiter=',', has_header=False):
-        g = brickschema.graph.Graph(load_brick=False)
+        g = brickschema.Graph(load_brick=False)
         for pfx, ns in self.prefixes.items():
             g.bind(pfx, ns)
         with open(filename) as f:

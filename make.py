@@ -1,4 +1,5 @@
 import brickschema
+from functools import partial
 import rdflib
 import csv
 import re
@@ -8,7 +9,7 @@ sw_re = re.compile(r'\$(\d+)\?')
 pfx_re = re.compile(r'(\w+)\s*=\s*(.*)$')
 
 prefixes = {
-    'brick': 'https://brickschema.org/schema/1.1/Brick#',
+    'brick': 'https://brickschema.org/schema/Brick#',
     'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
 }
 
@@ -28,21 +29,21 @@ class Rule:
         return self._repr
 
     def _make_mapping(self, inp):
-        m = col.search(inp)
-        if m is None:
+        m = col.findall(inp)
+        if not len(m):
             return lambda x: inp
 
-        def r(row):
-            # get the index into the row
-            idx = int(m.group(1))-1
-            # get the value at that index
-            s = row[idx]
-            # if that part of the row is empty, then do not emit
-            if not s:
-                return None
-            # substitute that value into the template (replace '$1', e.g.)
-            return inp.replace(m.group(0), s)
-        return r
+        def r(inp, row):
+            # for each ${1,2,3,.etc} match...
+            for idx in m:
+                # get the value at that index
+                s = row[int(idx)-1]
+                if not s:
+                    return None
+                # substitute that value into the template (replace '$1', e.g.)
+                inp = inp.replace(f"${idx}", s)
+            return inp
+        return partial(r, inp)
 
     def _make_switch(self, inp):
         m = sw_re.search(inp)

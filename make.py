@@ -37,6 +37,9 @@ class Rule:
             idx = int(m.group(1))-1
             # get the value at that index
             s = row[idx]
+            # if that part of the row is empty, then do not emit
+            if not s:
+                return None
             # substitute that value into the template (replace '$1', e.g.)
             return inp.replace(m.group(0), s)
         return r
@@ -73,7 +76,7 @@ class Builder:
     def get_triples(self, row):
         for rule in self.rules:
             t = rule.evaluate(row)
-            if t is None:
+            if t is None or None in t:
                 continue
             t = (
                 t[0].replace(' ', '_'),
